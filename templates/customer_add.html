@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add customer</title>
+  </head>
+  <body>
+    <h1>Add customer</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for m in messages %}
+            <li>{{ m }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+      <label>
+        Name:<br>
+        <input type="text" name="name">
+      </label>
+      <br><br>
+      <label>
+        Email:<br>
+        <input type="email" name="email">
+      </label>
+      <br><br>
+      <label>
+        Phone (optional):<br>
+        <input type="text" name="phone">
+      </label>
+      <br><br>
+      <button type="submit">Save</button>
+    </form>
+
+    <p><a href="{{ url_for('customers_list') }}">Back to list</a></p>
+  </body>
+</html>
